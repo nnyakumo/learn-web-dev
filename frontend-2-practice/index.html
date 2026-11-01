@@ -3,12 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Выбор даты и времени</title>
+    <title>Выбор даты и времени — Салон «Магия Стиля»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page">
-      <!-- Перенесите вашу верстку. Удалите статичные данные. Подключите скрипт -->
+      <!-- Шапка сайта -->
+      <header class="navbar">
+        <div class="brand-logo">
+          <svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5b214" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"/>
+            <circle cx="6" cy="18" r="3"/>
+            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+          <span class="brand-title">МАГИЯ СТИЛЯ</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#" class="nav-link">Услуги</a>
+          <a href="#" class="nav-link">Галерея</a>
+          <a href="#" class="nav-link">Команда</a>
+          <a href="#" class="nav-link">Отзывы</a>
+          <a href="#" class="nav-link">Контакты</a>
+        </nav>
+        <button type="button" class="login-button">Войти</button>
+      </header>
+
+      <!-- Основное содержимое -->
+      <main class="booking-layout">
+        <!-- Индикатор этапов бронирования -->
+        <nav class="steps-container" aria-label="Этапы записи">
+          <div class="steps-row">
+            <div class="step-tab done">
+              <svg class="step-check-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="step-text">1. Мастер</span>
+            </div>
+            <div class="step-tab done">
+              <svg class="step-check-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="step-text">2. Услуги</span>
+            </div>
+            <div class="step-tab active">
+              <span class="step-text">3. Дата и время</span>
+            </div>
+            <div class="step-tab">
+              <span class="step-text">4. Контакты</span>
+            </div>
+            <div class="step-tab">
+              <span class="step-text">5. Подтверждение</span>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Заголовок страницы с кнопкой «Назад» -->
+        <section class="header-row">
+          <div class="header-title-box">
+            <button type="button" class="back-button" aria-label="Вернуться назад">←</button>
+            <div class="header-text-group">
+              <h1 class="page-title">Выберите дату и время</h1>
+              <p class="page-subtitle">Мастер: Дмитрий • Мужская стрижка (45 мин)</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Двухколоночный блок: Календарь + Слоты времени -->
+        <div class="calendar-time-layout">
+          <!-- Карточка календаря -->
+          <section class="card calendar-card">
+            <div class="calendar-header">
+              <h2 class="calendar-month-title">Июнь 2025</h2>
+              <div class="calendar-nav-buttons">
+                <button type="button" class="calendar-arrow-btn calendar-nav-prev" aria-label="Предыдущий месяц">‹</button>
+                <button type="button" class="calendar-arrow-btn calendar-nav-next" aria-label="Следующий месяц">›</button>
+              </div>
+            </div>
+
+            <div class="calendar-grid">
+              <div class="calendar-weekdays">
+                <span class="weekday">Пн</span>
+                <span class="weekday">Вт</span>
+                <span class="weekday">Ср</span>
+                <span class="weekday">Чт</span>
+                <span class="weekday">Пт</span>
+                <span class="weekday weekend">Сб</span>
+                <span class="weekday weekend">Вс</span>
+              </div>
+
+              <!-- Контейнер для динамического рендеринга ячеек календаря через script.js -->
+              <div class="calendar-days"></div>
+            </div>
+          </section>
+
+          <!-- Карточка выбора времени -->
+          <section class="card time-slots-card">
+            <h2 class="time-header-title">Доступное время</h2>
+            <!-- Контейнер для динамического рендеринга кнопок времени через script.js -->
+            <div class="time-slots-grid"></div>
+          </section>
+        </div>
+
+        <!-- Нижняя итоговая плашка бронирования -->
+        <section class="bottom-cta-bar">
+          <div class="summary-info">
+            <span class="summary-label">Выбранное время визита</span>
+            <span class="summary-value">Среда, 18 июня 2025 • в 14:00</span>
+          </div>
+          <button type="button" class="cta-continue-button">Продолжить →</button>
+        </section>
+      </main>
+
+      <!-- Подвал сайта -->
+      <footer class="footer">
+        <div class="footer-columns">
+          <!-- Колонка 1: Бренд -->
+          <div class="footer-col brand-col">
+            <h3 class="footer-brand-title">МАГИЯ СТИЛЯ</h3>
+            <p class="footer-brand-desc">
+              Стрижки, окрашивание и премиум уход от лучших мастеров в центре Москвы. Безупречный стиль и комфорт.
+            </p>
+          </div>
+
+          <!-- Колонка 2: Контакты -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">КОНТАКТЫ</h4>
+            <ul class="footer-list">
+              <li class="footer-list-item">📍 ул. Садовая, 15, Москва</li>
+              <li class="footer-list-item">📞 +7 (495) 123-45-67</li>
+              <li class="footer-list-item">✉️ info@magiastyle.ru</li>
+            </ul>
+          </div>
+
+          <!-- Колонка 3: Режим работы -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">РЕЖИМ РАБОТЫ</h4>
+            <ul class="footer-list">
+              <li class="footer-list-item">Пн–Пт: 9:00 – 21:00</li>
+              <li class="footer-list-item">Сб–Вс: 10:00 – 19:00</li>
+              <li class="footer-list-item">Без перерывов и выходных</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Нижняя полоса копирайта -->
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2026 Салон «Магия Стиля». Все права защищены.</span>
+          <a href="#" class="footer-privacy-link">Политика конфиденциальности</a>
+        </div>
+      </footer>
     </div>
+
+    <!-- Подключение скрипта интерактивности перед закрывающим тегом body -->
+    <script src="script.js"></script>
   </body>
 </html>
