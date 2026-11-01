@@ -15,7 +15,7 @@ async function request(url) {
     try {
       const data = await response.json();
       if (data && data.error) message = data.error;
-    } catch (e) {
+    } catch {
       // Тело не JSON — оставляем базовый текст.
     }
     throw new Error(message);
@@ -34,11 +34,6 @@ export async function fetchToday() {
 // GET /api/slots?day=&month=&year=
 // Возвращает слоты для указанной даты.
 // Формат ответа: { date: { day, month, year }, slots: [{ time, available }] }.
-//
-// date в ответе — та же дата, что пришла в запросе. Нужна,
-// чтобы понять, к какому дню относятся слоты. Если пользователь
-// быстро кликает по дням, ответы могут прийти не в том порядке —
-// по этому полю клиент поймёт, какой из них актуальный.
 export async function fetchSlots(date) {
   const url = `/api/slots?day=${date.day}&month=${date.month}&year=${date.year}`;
   return request(url);
